@@ -1,0 +1,226 @@
+@charset "UTF-8";
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+a {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-decoration: none;
+}
+
+a:focus, button:focus {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+label, button, a {
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+ul {
+  list-style-type: none;
+}
+
+svg, a {
+  -webkit-transition: color .25s ease-in-out;
+  transition: color .25s ease-in-out;
+}
+
+picture {
+  font-size: 0;
+}
+
+.untouchable {
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: 'Normalidad Text';
+  src: local("Normalidad Text"), url("../fonts/NormalidadText-Light-Web.woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: 'Normalidad Text';
+  src: local("Normalidad Text"), url("../fonts/NormalidadText-Medium-Web.woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: 'Normalidad Wide';
+  src: local("Normalidad Wide"), url("../fonts/NormalidadWide-Regular-Web.woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: 'Normalidad Wide';
+  src: local("Normalidad Wide"), url("../fonts/NormalidadWide-Bold-Web.woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: auto;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --bg-red: #EF3340;
+  --logo-red: #C32127;
+  --blue: #14C1DE;
+  --deep-blue: #0047BB;
+  --lightgrey: #BDC8D3;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: Max(100%, 320px);
+  padding-bottom: 30px;
+  font-family: 'Normalidad Wide';
+}
+
+.error-message {
+  display: block;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+@media (max-width: 753px) {
+  .body #app .large-screen {
+    display: none;
+  }
+}
+
+@media (min-width: 752px) {
+  .body #app .mobile-screen {
+    display: none;
+  }
+}
+
+.phone-block {
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+}
+
+.phone-block__link {
+  font-size: 24px;
+  line-height: 120%;
+}
+
+.phone-block__phone-block__text {
+  font-size: 14px;
+  line-height: 120%;
+  color: var(--blue);
+}
+
+.dark-link {
+  position: relative;
+}
+
+.dark-link::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  background-color: currentColor;
+}
+
+.dark-link:focus-visible {
+  color: var(--deep-blue);
+}
+
+/* Эффекты */
+@media screen and (any-hover: hover) {
+  .dark-link:hover::after {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+/* MEDIA */
+@media (max-width: 1480px) {
+  .body {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 752px) {
+  .body {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+
+@media (max-width: 534px) {
+  .body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .phone-block__link {
+    font-size: 16px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
